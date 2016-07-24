@@ -1,9 +1,9 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: "./src/main.tsx",
+    entry: "./src/ts/main.tsx",
     output: {
-        filename: "./build/app.js",
+        filename: "./build/js/app.js",
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -16,8 +16,10 @@ module.exports = {
 
     plugins: [
         new CopyWebpackPlugin([
-            { from: './node_modules/react/dist/react.js', to: './lib/react' },
-            { from: './node_modules/react-dom/dist/react-dom.js', to: './lib/react' }
+            { from: './node_modules/react/dist/react.js', to: './build/lib/react' },
+            { from: './node_modules/react-dom/dist/react-dom.js', to: './build/lib/react' },
+            { from: './src/css/', to: './build/css/' },
+            { from: './src/index.html', to: './build/index.html' }
         ])
     ],
 
