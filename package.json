@@ -3,7 +3,7 @@
   "author": "Maciej Bukowski<ma2ciek@gmail.com>",
   "version": "0.0.1",
   "engines": {
-    "node": ">=6.0.0"
+    "node": "6.3.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
