@@ -1,0 +1,22 @@
+{
+  "name": "ts-gulp-mocha-generator",
+  "version": "0.0.1",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-typescript": "^2.13.6",
+    "run-sequence": "^1.2.1",
+    "ts-loader": "^0.8.2",
+    "typings": "^1.0.5",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^3.0.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
