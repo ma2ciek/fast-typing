@@ -2,6 +2,9 @@
   "name": "fast-typings",
   "author": "Maciej Bukowski<ma2ciek@gmail.com>",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.9.1",
@@ -19,7 +22,7 @@
     "typings": "^1.3.2"
   },
   "scripts": {
-    "install": "sudo typings install",
+    "install": "typings install",
     "postinstall": "webpack -p"
   }
 }
