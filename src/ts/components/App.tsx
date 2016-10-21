@@ -1,6 +1,7 @@
 import VisualKeyboard from './VisualKeyboard';
 import TextGenerator from '../services/TextGenerator';
 import Statistics from './Statistics';
+import Paragraph from './Paragraph';
 import * as React from 'react';
 
 interface AppState {
@@ -97,23 +98,29 @@ export default class App extends React.Component<{}, AppState> {
     }
 
     public render() {
+        const {letterCompleted, currentLetter, textNext} = this.state;
+
         return (
             <div>
-                <button onClick={ () => this.reset() }>Reset</button>
-                <button onClick={ () => this.next() }>Next</button>
+                <span className='icon' onClick={ () => this.reset() } title='reset' >
+                    <svg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z' />
+                        <path d='M0 0h24v24H0z' fill='none'/>
+                    </svg>
+                </span>
+                <span className='icon' onClick={ () => this.next() } title='next' >
+                    <svg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z'/>
+                        <path d='M0-.25h24v24H0z' fill='none' />
+                    </svg>
+                </span>
                 <Statistics history={this.state.history} />
-                <p className='text' >
-                    { this.state.letterCompleted.map((letter, key) =>
-                        <span
-                            className = {'letter ' + (letter.correct ? 'correct' : 'incorrect') }
-                            key={ key }>
-                            {letter.char}
-                        </span>
-                    ) }
-                    <span className='current'>{ this.state.currentLetter }</span>
-                    <span>{ this.state.textNext }</span>
-                </p>
-                <VisualKeyboard currentLetter={ this.state.currentLetter } />
+
+                <Paragraph letterCompleted={ letterCompleted }
+                    currentLetter={ currentLetter }
+                    textNext = { textNext }/>
+
+                <VisualKeyboard currentLetter={ currentLetter } />
             </div>
         );
     }
@@ -128,3 +135,4 @@ export default class App extends React.Component<{}, AppState> {
         window.removeEventListener('keyup', this.keyUp);
     }
 }
+
